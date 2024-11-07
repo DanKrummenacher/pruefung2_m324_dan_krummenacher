@@ -29,10 +29,13 @@ jobs:
       - name: Run tests
         run: npm test
 
-- name: Run Super-Linter
-  uses: github/super-linter@v4
-  env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    VALIDATE_ALL_CODEBASE: false
-    VALIDATE_JAVASCRIPT_ES: true
-    VALIDATE_MARKDOWN: true
+  super-linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Super-Linter
+        uses: github/super-linter@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_MARKDOWN: true
